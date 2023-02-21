@@ -8,10 +8,9 @@
         Title="MainWindow" Height="450" Width="800"
         MouseLeftButtonDown="canvas_MouseLeftButtonDown" MouseLeftButtonUp="canvas_MouseLeftButtonUp" MouseMove="canvas_MouseMove"
         MouseRightButtonDown="canvas_MouseRightButtonDown" MouseRightButtonUp="canvas_MouseRightButtonUp">
-    <Grid>
+    <Grid x:Name="canvasGrid">
         <Border x:Name="canvasborder" BorderBrush="Pink" BorderThickness="3" CornerRadius="10" Margin="10,50,10,10">
-            <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="489" Margin="7,7,0,0" VerticalAlignment="Top" Width="952">
-            </Canvas>
+            <Canvas x:Name="canvas" HorizontalAlignment="Center" Height="354" VerticalAlignment="Center" Width="760"/>
         </Border>
 
         <Button x:Name="button_line" Content="선" HorizontalAlignment="Left" Margin="15,7,0,0" VerticalAlignment="Top" Width="50" Height="35" Click="button_line_Click" />

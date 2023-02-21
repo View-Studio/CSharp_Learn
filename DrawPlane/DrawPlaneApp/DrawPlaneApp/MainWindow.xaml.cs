@@ -11,11 +11,9 @@ namespace DrawPlaneApp
         public bool mClicked = false;
         public bool lineClicked = false;
         public Point prePosition;
-        public Brush mycolor = new LinearGradientBrush(
-        Colors.Blue,
-        Color.FromRgb(204, 204, 255),
-        new Point(0, 0),
-        new Point(1, 1));
+        Line line;
+        Brush myBrush = new SolidColorBrush(Colors.White);
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,25 +30,22 @@ namespace DrawPlaneApp
             var nowPosition = e.GetPosition(canvas);
             if (mClicked)
             {
-                if (lineClicked)
-                {
-                    Line line = new Line();
-                    line.X1 = prePosition.X;
-                    line.X2 = nowPosition.X;
-                    line.Y1 = prePosition.Y;
-                    line.Y2 = nowPosition.Y;
-                    line.Stroke = mycolor;
-                    line.StrokeThickness = 2;
-                    canvas.Children.Add(line);
+                line = new Line();
+                line.X1 = prePosition.X;
+                line.X2 = nowPosition.X;
+                line.Y1 = prePosition.Y;
+                line.Y2 = nowPosition.Y;
+                line.Stroke = myBrush;
+                line.StrokeThickness = 2;
+                canvas.Children.Add(line);
 
-                    prePosition = nowPosition;
-                }
+                prePosition = nowPosition;
             }
         }
 
         private void canvas_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            mClicked = false;
         }
 
         private void canvas_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -110,27 +105,27 @@ namespace DrawPlaneApp
 
         private void color_black_Click(object sender, RoutedEventArgs e)
         {
-
+            myBrush = new SolidColorBrush(Colors.Black);
         }
 
         private void color_red_Click(object sender, RoutedEventArgs e)
         {
-
+            myBrush = new SolidColorBrush(Colors.Red);
         }
 
         private void color_blue_Click(object sender, RoutedEventArgs e)
         {
-
+            myBrush = new SolidColorBrush(Colors.Blue);
         }
 
         private void color_green_Click(object sender, RoutedEventArgs e)
         {
-
+            myBrush = new SolidColorBrush(Colors.Green);
         }
 
         private void color_yellow_Click(object sender, RoutedEventArgs e)
         {
-
+            myBrush = new SolidColorBrush(Colors.Yellow);
         }
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
